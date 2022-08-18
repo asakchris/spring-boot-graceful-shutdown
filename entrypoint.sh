@@ -17,5 +17,5 @@ export APP_PASS_PHRASE=${PASS_PHRASE}
 echo "JAVA_OPTS: ${JAVA_OPTS}"
 
 ## Start Process
- exec into process and take over PID
+# exec into process and take over PID
 >/app/log/stdout.log 2>/app/log/stderr.log exec "$@"
