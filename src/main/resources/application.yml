@@ -1,0 +1,58 @@
+server:
+  port: 8080
+  shutdown: GRACEFUL
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - env
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+spring:
+  application:
+    name: Graceful-Shutdown-Test
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+  datasource:
+    url: jdbc:postgresql://localhost:5432/myorg
+    username: foo
+    password: example123
+    hikari:
+      auto-commit: false
+      minimum-idle: 5
+      maximum-pool-size: 10
+      isolate-internal-queries: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    show-sql: true
+  sql:
+    init:
+      mode: always
+  task:
+    scheduling:
+      pool:
+        size: 10
+      shutdown:
+        await-termination: true
+        await-termination-period: 1m
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+
+app:
+  queues:
+    test-1:
+      name: test.one
+      concurrency: 5
+    test-2:
+      name: test.two
+      concurrency: 5

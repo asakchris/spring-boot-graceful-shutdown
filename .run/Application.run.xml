@@ -1,0 +1,24 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Application" type="Application" factoryName="Application">
+    <envs>
+      <env name="TEST_ENABLED" value="true" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="org.example.graceful.Application" />
+    <module name="spring-boot-graceful-shutdown" />
+    <option name="VM_PARAMETERS" value="-XshowSettings:vm -XX:MetaspaceSize=64M -XX:MaxMetaspaceSize=128M -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -XX:+UseStringDeduplication -XX:G1PeriodicGCSystemLoadThreshold=0.5 -XX:G1PeriodicGCInterval=210000 -XX:-G1PeriodicGCInvokesConcurrent -Dspring.config.location=classpath:/application.yml -Dspring.jmx.enabled=false -Duser.timezone=UTC -Duser.country=US -Duser.language=en" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="org.example.graceful.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
